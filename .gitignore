@@ -1,0 +1,21 @@
+# ===== Python =====
+__pycache__/
+*.pyc
+*.log
+
+# ===== 数据文件（Kaggle 下载，不入库；下载方式见 sql/01 注释 3.1） =====
+data/
+
+# ===== 步骤间中间产物与对账基线备份（衍生物，可由管线重跑再生成） =====
+outputs/intermediate/
+outputs/_*_baseline_*/
+
+# ===== 本地私人讲义（不上传 GitHub） =====
+LEARNING.md
+
+# ===== 系统与编辑器 =====
+.DS_Store
+~$*
+.vscode/
+.idea/
+.ipynb_checkpoints/
