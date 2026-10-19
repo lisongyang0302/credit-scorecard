@@ -56,8 +56,7 @@ def main():
     print("=" * 60)
     train_for_bin = X_tr_raw.copy()
     train_for_bin["target"] = y_tr.values
-    bins = sc.woebin(train_for_bin, y="target", x=NUM_FEATURES,
-                     bins_num=5, mono_enforce=True, print_listbox=False)
+    bins = sc.woebin(train_for_bin, y="target", x=NUM_FEATURES)  # 默认 tree 法（树式贪心分箱），仅训练集
     print(f"训练集分箱完成 {len(bins)} 个特征")
 
     train_woe = sc.woebin_ply(X_tr_raw[NUM_FEATURES], bins)

@@ -34,8 +34,7 @@ def run_pipeline(df, seed=42, y_override=None):
         X_raw, y, test_size=0.3, stratify=y, random_state=seed)
     train_bin = X_tr_raw.copy()
     train_bin["target"] = np.asarray(y_tr)
-    bins = sc.woebin(train_bin, y="target", x=NUM_FEATURES,
-                     bins_num=5, mono_enforce=True, print_listbox=False)
+    bins = sc.woebin(train_bin, y="target", x=NUM_FEATURES)  # 仅训练集分箱（默认 tree 法）
     tr_woe = sc.woebin_ply(X_tr_raw, bins)
     te_woe = sc.woebin_ply(X_te_raw, bins)
     lr = LogisticRegression(C=1.0, max_iter=1000, class_weight="balanced")
